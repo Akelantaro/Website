@@ -1,0 +1,124 @@
+.intro {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80%;
+    padding: 50px 10% 0 10%;
+}
+
+.introInfo {
+    width: 50%;
+    font-size: 20px;
+    padding: 0 20px 0 0;
+}
+
+.introImage {
+    width: 50%;
+    height: 400px;
+    background: url("image/trenajeryInfo.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+.trenajery {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80%;
+    padding: 50px 10% 0 10%;
+}
+
+.trenajery p {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.trenajeryBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-shadow: 3px 3px 20px 8px rgba(255, 168, 18, 0.3);
+    border-radius: 25px;
+    margin: 10px 0 50px 0;
+}
+
+.trenajeryBlockImage1 {
+    width: 50%;
+    height: 38vw;
+    background: url("image/t1.jpg") no-repeat center;
+    -webkit-background-size: auto auto;
+    background-size: cover;
+    margin: 30px;
+    position: sticky;
+    top: 80px;
+    bottom: 0;
+}
+
+.trenajeryBlockImage2 {
+    width: 50%;
+    height: 38vw;
+    background: url("image/t2.jpg") no-repeat center;
+    -webkit-background-size: auto auto;
+    background-size: cover;
+    margin: 30px;
+    position: sticky;
+    top: 80px;
+    bottom: 0;
+}
+
+.trenajeryBlockImage3 {
+    width: 50%;
+    height: 38vw;
+    background: url("image/t3.jpg") no-repeat center;
+    -webkit-background-size: auto auto;
+    background-size: cover;
+    margin: 30px;
+    position: sticky;
+    top: 80px;
+    bottom: 0;
+}
+
+.trenajeryBlockImage4 {
+    width: 50%;
+    height: 38vw;
+    background: url("image/t4.jpg") no-repeat center;
+    -webkit-background-size: auto auto;
+    background-size: cover;
+    margin: 30px;
+    position: sticky;
+    top: 80px;
+    bottom: 0;
+}
+
+.trenajeryBlockImage5 {
+    width: 50%;
+    height: 38vw;
+    background: url("image/t5.jpg") no-repeat center;
+    -webkit-background-size: auto auto;
+    background-size: cover;
+    margin: 30px;
+    position: sticky;
+    top: 80px;
+    bottom: 0;
+}
+
+.trenajeryBlockInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.trenajeryBlockInfo span {
+    padding: 20px;
+    font-size: 20px;
+}

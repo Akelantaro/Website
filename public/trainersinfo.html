@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+    </script>
+    <script src="js/main.js"></script>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="css/image/favicon.ico">
+    <link rel="stylesheet" href="css/trainersinfo.css">
+    <link rel="stylesheet" href="css/Header.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <title>GribFit</title>
+</head>
+
+<body>
+<header class="header" id="header">
+    <div class="header_start">
+        <div class="header__inner">
+            <div class="header__logo scroll">
+                <div class="header__logo__image"></div>
+                <div class="header__logo__text"><a href="#top">GribFit</a></div>
+            </div>
+            <div class="header_links_sod">
+                <div class="header_links_sod_icon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="sod_menu">
+                    <a class="nav__link" href="/">Главная</a>
+                    <a class="nav__link" href="groupprogramms.html">Групповые программы</a>
+                    <a class="nav__link" href="trainersinfo.html">Информация о тренерах</a>
+                    <a class="nav__link" href="compleks.html">Комплексы упражнений</a>
+                    <a class="nav__link" href="trenajery.html">Тренажеры</a>
+                </div>
+                <script>$(".sod_menu").css("display", "none");</script>
+            </div>
+            <nav class="nav">
+                <a class="nav__link" href="/">Главная</a>
+                <a class="nav__link" href="groupprogramms.html">Групповые программы</a>
+                <a class="nav__link" href="trainersinfo.html">Информация о тренерах</a>
+                <a class="nav__link" href="compleks.html">Комплексы упражнений</a>
+                <a class="nav__link" href="trenajery.html">Тренажеры</a>
+            </nav>
+        </div>
+        <div class="user">
+            <a href="auth.html" id="user__name">Войти</a>
+            <div class="user__image"></div>
+        </div>
+    </div>
+</header>
+
+<div class="intro">
+    <div class="introInfo">
+        Без опытного наставника практически
+        невозможно добиться значимых результатов
+        в спорте. Ведь тренер это не только инструктор,
+        а еще и психолог, опора и поддержка для спортсмена <br>
+        Наши тренеры - это профессионалы, которые работают с
+        людьми, чтобы помочь им улучшить свои спортивные
+        навыки, физическую форму и достичь спортивных целей
+    </div>
+    <div class="introImage"></div>
+</div>
+
+<div class="trainers">
+    <span>Наши тренеры</span>
+    <div class="trainersBlock">
+        <div class="trainersBlockInfo">
+            <div class="trainersBlockInfoImage1"></div>
+            <div class="trainersBlockInfoText">
+                <span>Спартак</span>
+                <p>Инструктор групповых программ</p>
+                <p><b>Стаж: </b> 13 лет</p>
+                <p>
+                    <b>Специализация: </b><br>
+                    - Функциональный тренинг <br>
+                    - Атлетика<br>
+                    - Силовые направления<br>
+                    - Stretching
+                </p>
+                <p>
+                    Российский Государственный Социальный Университет
+                    (культурология). Ассоциация профессионалов фитнеса
+                    (FPA) инструктор групповых программ.
+                    Сертифицированный тренер LesMils:Grit.
+                </p>
+                <i>
+                    "Сделай сегодня сколько сможешь, завтра сможешь ещё больше".
+                </i>
+            </div>
+        </div>
+        <div class="trainersBlockRecord">
+            <p>Записаться на индивидуальную тренировку</p>
+            <span>Цена: 3000 рублей</span>
+            <input type="button" onclick="RecordTrainer(0)" id="trainer1" value="записаться">
+        </div>
+    </div>
+    <div class="trainersBlock">
+        <div class="trainersBlockInfo">
+            <div class="trainersBlockInfoImage2"></div>
+            <div class="trainersBlockInfoText">
+                <span>Юлия</span>
+                <p>Инструктор групповых программ</p>
+                <p><b>Стаж: </b> 2 года</p>
+                <p>
+                    <b>Специализация: </b><br>
+                    - Функциональный тренинг <br>
+                    - Кардио-тренинг<br>
+                    - Программы mind body<br>
+                    - Программы Les Mills <br>
+                    - Танцевальные направления
+                </p>
+                <p>
+                    Сертифицированный тренер Les Mills: BODYBALANCE, BODYPUMP, BODYCOMBAT.
+                    Удостоверение World Class по программе: «инструктор групповых программ».
+                    Дипломированный педагог- хореограф театра танца и песни «Овация».
+                    Классификационная книжка, подтверждающая статус танцора.
+                </p>
+                <i>
+                    "Верь в себя и все получится!".
+                </i>
+            </div>
+        </div>
+        <div class="trainersBlockRecord">
+            <p>Записаться на индивидуальную тренировку</p>
+            <span>Цена: 2500 рублей</span>
+            <input type="button" onclick="RecordTrainer(1)" id="trainer2" value="записаться">
+        </div>
+    </div>
+    <div class="trainersBlock">
+        <div class="trainersBlockInfo">
+            <div class="trainersBlockInfoImage3"></div>
+            <div class="trainersBlockInfoText">
+                <span>Анатолий</span>
+                <p>Инструктор групповых программ</p>
+                <p><b>Стаж: </b> 5 лет</p>
+                <p>
+                    <b>Специализация: </b><br>
+                    - Набор мышечной массы <br>
+                    - Похудение<br>
+                    - Коррекция фигуры<br>
+                    - Тренировки для людей с ограничением ОДА
+                </p>
+                <p>
+                    Кубанский государственный университет: Преподаватель истории.
+                    Высшая школа фитнеса и бодибилдинга
+                    Персональный фитнес-тренер
+                </p>
+                <i>
+                    "Лучший день в жизни чтобы всё изменить-сегодня!"
+                </i>
+            </div>
+        </div>
+        <div class="trainersBlockRecord">
+            <p>Записаться на индивидуальную тренировку</p>
+            <span>Цена: 2300 рублей</span>
+            <input type="button" onclick="RecordTrainer(2)" id="trainer3" value="записаться">
+        </div>
+    </div>
+    <div class="trainersBlock">
+        <div class="trainersBlockInfo">
+            <div class="trainersBlockInfoImage4"></div>
+            <div class="trainersBlockInfoText">
+                <span>Анизоро</span>
+                <p>Инструктор групповых программ</p>
+                <p><b>Стаж: </b> 5 лет</p>
+                <p>
+                    <b>Специализация: </b><br>
+                    - Cиловой тренинг<br>
+                    - Снижение веса<br>
+                    - Функциональный тренинг<br>
+                    - Восстановления после травм <br>
+                    - Исправление осанки <br>
+                    - Набор мышечной массы
+                </p>
+                <p>
+                    Высшее юридическое образование.
+                    Академия фитнеса бодибилдингу по специальности: "Персональный тренер".
+                    Достижения мастер спорта по греко - римской борьбе.
+                    Мастер спорта по классическому пауэрлифтингу.
+                </p>
+                <i>
+                    "Дорогу осилит идущий".
+                </i>
+            </div>
+        </div>
+        <div class="trainersBlockRecord">
+            <p>Записаться на индивидуальную тренировку</p>
+            <span>Цена: 2600 рублей</span>
+            <input type="button" onclick="RecordTrainer(3)" id="trainer4" value="записаться">
+        </div>
+    </div>
+</div>
+<div class="contact">
+    <div class="contact_text">
+        Свяжитесь с нами
+    </div>
+    <div class="contact_block">
+        <div class="contact_block_ooo">
+            © 2022-2023. GribFit
+        </div>
+        <div class="contact_block_info">
+            <div class="contact_block_info_mail">
+                GribFit@gmail.com
+            </div>
+            <div class="contact_block_info_phone">
+                +7 123 456 78 90
+            </div>
+            <div class="contact_block_info_inst">
+                @GribFit
+            </div>
+        </div>
+        <div class="contact_block_logo">
+            <div class="contact_block_logo_text">
+                GribFit
+            </div>
+            <div class="contact_block_logo_image"></div>
+        </div>
+    </div>
+</div>
+<button onclick="addTrainers()">Добавить тренеров</button>
+</body>
+</html>

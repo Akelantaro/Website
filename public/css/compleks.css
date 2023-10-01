@@ -1,0 +1,87 @@
+:root {
+    --txt-color: #FFA812;
+    --txt-color-after: #FFD700;
+    --form-color: #FFF8E7;
+}
+
+.intro {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80%;
+    padding: 50px 10% 0 10%;
+}
+
+.introInfo {
+    width: 50%;
+    font-size: 20px;
+    padding: 0 20px 0 0;
+}
+
+.introImage {
+    width: 50%;
+    height: 400px;
+    background: url("image/compleks.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+.compleks {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80%;
+    padding: 50px 10% 50px 10%;
+}
+
+.compleks p {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.compleksOne {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    border-radius: 50px;
+    box-shadow: 3px 3px 20px 8px rgba(255, 168, 18, 0.3);
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+.compleksOne span {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 5px 20px 5px 20px;
+    color: white;
+    background-color: var(--txt-color-after);
+    border-radius: 30px;
+}
+
+.compleksOne table {
+    border-spacing: 0;
+    border-bottom: 1px solid var(--txt-color);
+    border-right: 1px solid var(--txt-color);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.compleksOne td {
+    border-top: 1px solid var(--txt-color);
+    border-left: 1px solid var(--txt-color);
+    padding: 20px;
+}
+
+.compleksOne th {
+    border-top: 1px solid var(--txt-color);
+    border-left: 1px solid var(--txt-color);
+    padding: 20px;
+}
