@@ -17,30 +17,25 @@ const port = 3000;
 require('./config/passport')(passport);
 
 app.use(cors());
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect(config.db);
 
 app.use(passport.initialize());
 
-mongoose.connection.on('connected', ()=>{
-  console.log("Мы успешно подключились к бд");
+mongoose.connection.on('connected', () => {
+    console.log("Мы успешно подключились к бд");
 });
 
-mongoose.connection.on('error', (err)=>{
-  console.log("Мы не подключились к бд: " + err);
+mongoose.connection.on('error', (err) => {
+    console.log("Мы не подключились к бд: " + err);
 });
 
-app.post('/api/registration',(req, res) =>{
-  console.log(req.body);
-  res.redirect('/');
-});
 
 app.use('/account', account);
 
-app.listen(port,()=>{
-  console.log("Сервер был запущен по порту: " + port);
+app.listen(port, () => {
+    console.log("Сервер был запущен по порту: " + port);
 });
