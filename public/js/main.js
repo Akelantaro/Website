@@ -6,7 +6,14 @@ let individual = [false, false, false, false];
 let individualUser = "";
 let tokenLogin = "";
 let groupsNumbers = [3, 3, 3];
+
+let spanID = 0,StartTime = Date.now();
+let spans = [{name:"main",
+    id:spanID,
+    timeStart:Date.now()-StartTime,
+    timeEnd:Number}];
 $(document).ready(function () {
+    getSpan(arguments.callee.name);
     const sodMenuLink = $(".sod_menu");
     const headerSodLink = $(".header_links_sod");
     const introLink = $(".intro");
@@ -18,6 +25,7 @@ $(document).ready(function () {
     const introInfoIconsLink = $('.introInfoIcons');
     const introInfoImageLink = $('.introInfoImage');
     const userLink = $("#user__name");
+
     $("body").children().children().css("display", "none");
     $("body").children().children().fadeIn(1000);
     introLink.attr("id", "top");
@@ -31,6 +39,7 @@ $(document).ready(function () {
         });
 
     function HeaderWidth() {
+        getSpan(arguments.callee.name);
         if ($(window).width() < 1054) {
             navLink.css("display", "none");
             headerSodLink.fadeIn(1000);
@@ -42,6 +51,7 @@ $(document).ready(function () {
             introInfoIconsLink.css("display", "flex");
             introInfoImageLink.css("width", "50%");
         }
+        getSpan(arguments.callee.name);
     }
 
     HeaderWidth();
@@ -59,83 +69,112 @@ $(document).ready(function () {
     headerLink.css("height", headerHeight);
     introLink.css("margin-top", headerHeight);
     $(".Reg").css("margin-top", headerHeight);
-    $.ajax({
-        url: '/programs/programNumbers',
-        method: 'get',
-        dataType: 'json',
-        success: function (data) {
-            for (let i = 0; i <= 2; i++) {
-                groupsNumbers[i] -= data.msg[i];
-                groupNumberLink[i].text("Количество оставшихся мест:   " + groupsNumbers[i]);
-                if (groupsNumbers[i] <= 0) {
-                    groupProgramLink[i].attr("value", "  Мест нет  ");
-                    groupProgramLink[i].css("background-color", "#D7D7D7");
-                    groupProgramLink[i].css("color", "#FFA812");
+
+    function getProgramNubers(){
+        getSpan(arguments.callee.name);
+        $.ajax({
+            url: '/programs/programNumbers',
+            method: 'get',
+            dataType: 'json',
+            success: function (data) {
+                for (let i = 0; i <= 2; i++) {
+                    groupsNumbers[i] -= data.msg[i];
+                    groupNumberLink[i].text("Количество оставшихся мест:   " + groupsNumbers[i]);
+                    if (groupsNumbers[i] <= 0) {
+                        groupProgramLink[i].attr("value", "  Мест нет  ");
+                        groupProgramLink[i].css("background-color", "#D7D7D7");
+                        groupProgramLink[i].css("color", "#FFA812");
+                    }
                 }
             }
-        }
-    });
-    $.ajax({
-        url: '/trainers/getTrainers',
-        method: 'post',
-        dataType: 'json',
-        data: {trainers: trainers},
-        success: function (data) {
-            individual = data.msg;
-            for (let i = 0; i <= trainers.length - 1; i++) if (individual[i]) {
-                trainerLink[i].attr("value", "  Тренер занят  ");
-                trainerLink[i].css("background-color", "#D7D7D7");
-                trainerLink[i].css("color", "#FFA812");
+        });
+        getSpan(arguments.callee.name);
+    }
+    function getTrainersNumber(){
+        getSpan(arguments.callee.name);
+        $.ajax({
+            url: '/trainers/getTrainers',
+            method: 'post',
+            dataType: 'json',
+            data: {trainers: trainers},
+            success: function (data) {
+                individual = data.msg;
+                for (let i = 0; i <= trainers.length - 1; i++) if (individual[i]) {
+                    trainerLink[i].attr("value", "  Тренер занят  ");
+                    trainerLink[i].css("background-color", "#D7D7D7");
+                    trainerLink[i].css("color", "#FFA812");
+                }
             }
-        }
-    });
-    $.ajax({
-        url: '/account/token',
-        method: 'get',
-        dataType: 'json',
-        success: function (data) {
-            if (data.success) {
-                tokenLogin = data.msg;
-                userLink.text(tokenLogin);
-                userLink.attr("href", "prothile.html");
-                $("#username").text(tokenLogin);
-                $.ajax({
-                    url: '/programs/programRecordCheck',
-                    method: 'post',
-                    dataType: 'json',
-                    data: {login: tokenLogin},
-                    success: function (data1) {
-                        for (let i = 0; i <= 2; i++) if (data1.msg[i]) {
-                            groups[i] = true;
-                            groupProgramLink[i].attr("value", "  Отменить запись  ");
-                            groupProgramLink[i].css("background-color", "#FFA812");
-                            groupProgramLink[i].css("color", "white");
-                            $("#profileGroup").css("display", "flex");
-                            $("#profileGroup").append("<a>" + groupPrograms[i] + "</a>");
-                            $("#profileGroup a").attr("href", "groupprogramms.html");
-                        }
-                    }
-                });
-                $.ajax({
-                    url: '/trainers/trainerRecordCheck',
-                    method: 'post',
-                    dataType: 'json',
-                    data: {user: tokenLogin},
-                    success: function (data1) {
-                        if (data1.success) individualUser = data1.msg
-                        for (let i = 0; i <= 3; i++) if (trainers[i] === individualUser) {
-                            trainerLink[i].attr("value", "  Отменить запись  ");
-                            trainerLink[i].css("background-color", "#FFA812");
-                            trainerLink[i].css("color", "white");
-                            $("#profileTrainer").css("display", "flex");
-                            $("#profileTrainer").append("<a>" + trainers[i] + "</a>");
-                            $("#profileTrainer a").attr("href", "trainersinfo.html");
-                        }
-                    }
-                })
+        });
+        getSpan(arguments.callee.name);
+    }
+    function getToken(){
+        getSpan(arguments.callee.name);
+        $.ajax({
+            url: '/account/token',
+            method: 'get',
+            dataType: 'json',
+            success: function (data) {
+                if (data.success) {
+                    tokenLogin = data.msg;
+                    userLink.text(tokenLogin);
+                    userLink.attr("href", "prothile.html");
+                    $("#username").text(tokenLogin);
+                    getProgramRecordCheck()
+                    getTrainerRecordCheck()
+                }
             }
-        }
-    })
+        })   
+        getSpan(arguments.callee.name);
+    }
+    function getProgramRecordCheck(){
+        getSpan(arguments.callee.name);
+        $.ajax({
+            url: '/programs/programRecordCheck',
+            method: 'post',
+            dataType: 'json',
+            data: {login: tokenLogin},
+            success: function (data1) {
+                for (let i = 0; i <= 2; i++) if (data1.msg[i]) {
+                    groups[i] = true;
+                    groupProgramLink[i].attr("value", "  Отменить запись  ");
+                    groupProgramLink[i].css("background-color", "#FFA812");
+                    groupProgramLink[i].css("color", "white");
+                    $("#profileGroup").css("display", "flex");
+                    $("#profileGroup").append("<a>" + groupPrograms[i] + "</a>");
+                    $("#profileGroup a").attr("href", "groupprogramms.html");
+                }
+            }
+        });
+        getSpan(arguments.callee.name);
+    }
+    function getTrainerRecordCheck(){
+        getSpan(arguments.callee.name);
+        $.ajax({
+            url: '/trainers/trainerRecordCheck',
+            method: 'post',
+            dataType: 'json',
+            data: {user: tokenLogin},
+            success: function (data1) {
+                if (data1.success) individualUser = data1.msg
+                for (let i = 0; i <= 3; i++) if (trainers[i] === individualUser) {
+                    trainerLink[i].attr("value", "  Отменить запись  ");
+                    trainerLink[i].css("background-color", "#FFA812");
+                    trainerLink[i].css("color", "white");
+                    $("#profileTrainer").css("display", "flex");
+                    $("#profileTrainer").append("<a>" + trainers[i] + "</a>");
+                    $("#profileTrainer a").attr("href", "trainersinfo.html");
+                }
+            }
+        })
+        getSpan(arguments.callee.name);
+    }
+    getProgramNubers();
+    getTrainersNumber();
+    getToken();
+    getSpan(arguments.callee.name);
+    console.log(spanID);
+    for (let i=0;i<=spanID;i++) console.log(spans[i]);
 })
 
 
@@ -162,6 +201,7 @@ function registration() {
 }
 
 function authentication() {
+    getSpan(arguments.callee.name);
     let form = document.forms[0];
     let login = form.elements.login.value;
     let password = form.elements.password.value;
@@ -175,10 +215,12 @@ function authentication() {
             data: {login: login, password: password},
             success: function (data) {
                 alert(data.msg);
-                if (data.success) window.location.href = "/";
+                //if (data.success) window.location.href = "/";
             }
         });
     }
+    getSpan(arguments.callee.name);
+    console.log(spans[spanID]);
 }
 
 function Logout() {
@@ -271,3 +313,26 @@ function addTrainers() {
         }
     })
 }
+
+function getSpan(name){
+    if (name == "") name = "Document ready function";
+    let i = 0;
+    let check = true;
+    while (i<=spanID && check){
+        if (spans[i].name == name){
+            spans[i].timeEnd=Date.now()-StartTime;
+            spans[0].timeEnd=spans[i].timeEnd;
+            check = false;
+        }
+        i++;
+    }
+    if (check){
+        spanID++;
+        spans.push({
+            name:name,
+            id:spanID,
+            timeStart:Date.now()-StartTime,
+            timeEnd:Number
+        })
+    }
+ }
