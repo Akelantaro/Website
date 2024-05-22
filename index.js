@@ -6,6 +6,7 @@ const config = require('./config/db');
 const account = require('./routes/account');
 const programs = require('./routes/Programs');
 const trainers = require('./routes/trainers');
+const trace = require('./routes/trace');
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
@@ -29,6 +30,7 @@ mongoose.connection.on('error', (err) => {
 app.use('/account', account);
 app.use('/programs', programs);
 app.use('/trainers', trainers);
+app.use('/trace', trace);
 
 app.listen(port, () => {
     console.log("Сервер был запущен по порту: " + port);

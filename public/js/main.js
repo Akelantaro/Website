@@ -173,8 +173,19 @@ $(document).ready(function () {
     getTrainersNumber();
     getToken();
     getSpan(arguments.callee.name);
-    console.log(spanID);
-    for (let i=0;i<=spanID;i++) console.log(spans[i]);
+    console.log(spans);
+    let spansData = [];
+    for (let i=0;i<=spanID;i++) spansData[i]=spans[i];
+    console.log(spansData);
+    $.ajax({
+        url: '/trace/tracer',
+        method: 'post',
+        dataType: 'json',
+        data: {spans:spans},
+        success: function (data) {
+           console.log("отправленно"); 
+        }
+    });
 })
 
 

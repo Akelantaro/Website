@@ -8,15 +8,16 @@
     "start": "node index"
   },
   "dependencies": {
-    "express": "*",
-    "mongoose": "*",
+    "axios": "^1.6.8",
     "bcryptjs": "*",
-    "passport": "*",
-    "passport-jwt": "*",
     "body-parser": "*",
+    "cookie-parser": "*",
     "cors": "*",
+    "express": "*",
     "jsonwebtoken": "*",
-    "cookie-parser": "*"
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*"
   },
   "author": "",
   "license": "ISC"
